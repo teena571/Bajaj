@@ -1,5 +1,5 @@
 import { fibonacci, getPrimes, lcm, hcf } from '../utils/mathUtils.js';
-import { askAI } from '../services/externalService.js';
+import { queryExternal } from '../services/externalService.js';
 
 const OFFICIAL_EMAIL = process.env.OFFICIAL_EMAIL || 'student@chitkara.edu.in';
 
@@ -132,7 +132,7 @@ export const handleBfhl = async (req, res, next) => {
             error: 'AI input must be a non-empty string'
           });
         }
-        data = await askAI(value);
+        data = await queryExternal(value);
         break;
 
       default:
